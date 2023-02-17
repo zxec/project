@@ -6,12 +6,7 @@ class ControllerMedal extends Controller
     {
         $this->model = new ModelMedal();
         $this->view = new View();
-    }
-
-    public function index(): void
-    {
-        $data = $this->model->getData();
-        $this->view->generate('medal_view.php', $data);
+        $this->nameView = 'medal_view.php';
     }
 
     public function create(): void

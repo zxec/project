@@ -9,12 +9,6 @@ class ModelSport extends Model
         $this->tableName = 'sports';
     }
 
-    public function getData(): array
-    {
-        $conn = $this->db->getConnection();
-        return $conn->query('SELECT * FROM ' . $this->tableName . ' ORDER BY `sport_name`')->fetchAll();
-    }
-
     public function hasRecord($name): int
     {
         $conn = $this->db->getConnection();

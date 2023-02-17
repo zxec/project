@@ -2,16 +2,12 @@
 
 class ControllerCountry extends Controller
 {
+
     public function __construct()
     {
         $this->model = new ModelCountry();
         $this->view = new View();
-    }
-
-    public function index(): void
-    {
-        $data = $this->model->getData();
-        $this->view->generate('country_view.php', $data);
+        $this->nameView = 'country_view.php';
     }
 
     public function create(): void

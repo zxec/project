@@ -2,16 +2,12 @@
 
 class ControllerAthlete extends Controller
 {
+
     public function __construct()
     {
         $this->model = new ModelAthlete();
         $this->view = new View();
-    }
-
-    public function index(): void
-    {
-        $data = $this->model->getData();
-        $this->view->generate('athlete_view.php', $data);
+        $this->nameView = 'athlete_view.php';
     }
 
     public function create(): void

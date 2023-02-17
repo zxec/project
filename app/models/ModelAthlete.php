@@ -2,16 +2,11 @@
 
 class ModelAthlete extends Model
 {
+
     function __construct()
     {
         $this->db = new Database();
         $this->tableName = 'athletes';
-    }
-
-    public function getData(): array
-    {
-        $conn = $this->db->getConnection();
-        return $conn->query('SELECT * FROM ' . $this->tableName . ' ORDER BY `athlete_name`')->fetchAll();
     }
 
     public function hasRecord($name): int

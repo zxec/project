@@ -21,7 +21,7 @@ class ModelMedal extends Model
         return $data;
     }
 
-    public function create($medalType, $countryId, $sportId, $athletes): void
+    public function create($medalType = null, $countryId = null, $sportId = null, $athletes = null): void
     {
         $conn = $this->db->getConnection();
 

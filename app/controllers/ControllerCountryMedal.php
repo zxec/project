@@ -4,10 +4,12 @@ include 'app/models/ModelMedalType.php';
 
 class ControllerCountryMedal extends Controller
 {
+
     function __construct()
     {
         $this->model = new ModelCountryMedal();
         $this->view = new View();
+        $this->nameView = 'countryMedal_view.php';
     }
 
     public function index($params = null): void
@@ -27,6 +29,6 @@ class ControllerCountryMedal extends Controller
             }
         }
 
-        $this->view->generate('countryMedal_view.php', $data, $title);
+        $this->view->generate($this->nameView, $data, $title);
     }
 }

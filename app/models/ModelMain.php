@@ -9,12 +9,6 @@ class ModelMain extends Model
         $this->tableName = 'view_competitions';
     }
 
-    public function getData(): array
-    {
-        $conn = $this->db->getConnection();
-        return $conn->query('SELECT * FROM ' . $this->tableName)->fetchAll();
-    }
-
     public function getDataSort($sort): array
     {
         $sortList = [

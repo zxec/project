@@ -9,12 +9,6 @@ class ModelCountry extends Model
         $this->tableName = 'countries';
     }
 
-    public function getData(): array
-    {
-        $conn = $this->db->getConnection();
-        return $conn->query('SELECT * FROM ' . $this->tableName . ' ORDER BY `country_name`')->fetchAll();
-    }
-
     public function getDataCountry($id): array
     {
         $conn = $this->db->getConnection();

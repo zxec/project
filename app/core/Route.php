@@ -2,16 +2,17 @@
 
 class Route
 {
+
     static public function start(): void
     {
-        $controller_name = 'Main';
+        $controllerName = 'Main';
         $action_name = 'index';
         $params = [];
 
         $routes = explode('/', $_SERVER['REQUEST_URI']);
 
         if (!empty($routes[1])) {
-            $controller_name = $routes[1];
+            $controllerName = $routes[1];
         }
 
         if (!empty($routes[2])) {
@@ -24,24 +25,24 @@ class Route
             }
         }
 
-        $model_name = 'Model' . $controller_name;
-        $controller_name = 'Controller' . $controller_name;
+        $modelName = 'Model' . $controllerName;
+        $controllerName = 'Controller' . $controllerName;
 
-        $model_file = $model_name . '.php';
-        $model_path = "app/models/" . $model_file;
-        if (file_exists($model_path)) {
-            include "app/models/" . $model_file;
+        $modelFile = $modelName . '.php';
+        $modelPath = "app/models/" . $modelFile;
+        if (file_exists($modelPath)) {
+            include "app/models/" . $modelFile;
         }
 
-        $controller_file = $controller_name . '.php';
-        $controller_path = "app/controllers/" . $controller_file;
-        if (file_exists($controller_path)) {
-            include "app/controllers/" . $controller_file;
+        $controllerFile = $controllerName . '.php';
+        $controllerPath = "app/controllers/" . $controllerFile;
+        if (file_exists($controllerPath)) {
+            include "app/controllers/" . $controllerFile;
         } else {
             Route::ErrorPage404();
         }
 
-        $controller = new $controller_name();
+        $controller = new $controllerName();
         $action = $action_name;
 
         if (method_exists($controller, $action)) {
@@ -53,7 +54,6 @@ class Route
         } else {
             Route::ErrorPage404();
         }
-
     }
 
     static function ErrorPage404(): void

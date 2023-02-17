@@ -1,11 +1,14 @@
 <?php
 
-class Controller
+abstract class Controller
 {
-    public Model $model;
-    public View $view;
+    protected Model $model;
+    protected View $view;
+    protected string $nameView;
 
-    protected function index(): void
+    public function index(): void
     {
+        $data = $this->model->getData();
+        $this->view->generate($this->nameView, $data);
     }
 }

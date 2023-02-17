@@ -17,7 +17,7 @@ class ControllerSport extends Controller
     public function create(): void
     {
         if (!empty($_POST)) {
-            $sportName = trim(htmlspecialchars($_POST['sport_name']));
+            $sportName = htmlspecialchars(trim($_POST['sport_name']));
 
             if (!empty($sportName)) {
                 $this->model->create($sportName);

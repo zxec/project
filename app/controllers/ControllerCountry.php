@@ -17,7 +17,7 @@ class ControllerCountry extends Controller
     public function create(): void
     {
         if (!empty($_POST)) {
-            $countryName = trim(htmlspecialchars($_POST['country_name']));
+            $countryName = htmlspecialchars(trim($_POST['country_name']));
 
             if (!empty($countryName)) {
                 $this->model->create($countryName);

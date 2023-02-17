@@ -17,7 +17,7 @@ class ModelMain extends Model
 
     public function getDataSort($sort): array
     {
-        $sortList = array(
+        $sortList = [
             'place_asc' => '`place`',
             'place_desc' => '`place` DESC',
             'country_name_asc' => '`country_name`',
@@ -30,7 +30,7 @@ class ModelMain extends Model
             'b_desc' => '`b` DESC',
             'al_asc' => '`al`',
             'al_desc' => '`al` DESC',
-        );
+        ];
 
         if (array_key_exists($sort, $sortList)) {
             $sortSql = $sortList[$sort];

@@ -17,14 +17,14 @@ class ControllerMedal extends Controller
     public function create(): void
     {
         if (!empty($_POST)) {
-            $medalType = trim(htmlspecialchars($_POST['medal_type']));
-            $countryId = trim(htmlspecialchars($_POST['country_id']));
-            $sportId = trim(htmlspecialchars($_POST['sport_id']));
-            $athletes[] = trim(htmlspecialchars($_POST['athlete_id1'])) ?: null;
-            $athletes[] = trim(htmlspecialchars($_POST['athlete_id2'])) ?: null;
-            $athletes[] = trim(htmlspecialchars($_POST['athlete_id3'])) ?: null;
-            $athletes[] = trim(htmlspecialchars($_POST['athlete_id4'])) ?: null;
-            $athletes[] = trim(htmlspecialchars($_POST['athlete_id5'])) ?: null;
+            $medalType = htmlspecialchars(trim($_POST['medal_type']));
+            $countryId = htmlspecialchars(trim($_POST['country_id']));
+            $sportId = htmlspecialchars(trim($_POST['sport_id']));
+            $athletes[] = htmlspecialchars(trim($_POST['athlete_id1'])) ?: null;
+            $athletes[] = htmlspecialchars(trim($_POST['athlete_id2'])) ?: null;
+            $athletes[] = htmlspecialchars(trim($_POST['athlete_id3'])) ?: null;
+            $athletes[] = htmlspecialchars(trim($_POST['athlete_id4'])) ?: null;
+            $athletes[] = htmlspecialchars(trim($_POST['athlete_id5'])) ?: null;
 
             $athletes = array_unique($athletes);
 

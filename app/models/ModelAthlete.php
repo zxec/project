@@ -14,12 +14,23 @@ class ModelAthlete extends Model
         return $conn->query('SELECT * FROM ' . $this->tableName . ' ORDER BY `athlete_name`')->fetchAll();
     }
 
-    public function create($name): void
+    public function hasRecord($name): int
     {
         $conn = $this->db->getConnection();
-        $sth = $conn->prepare('INSERT INTO ' . $this->tableName . ' SET athlete_name=:athlete_name');
+        $sth = $conn->prepare('SELECT * FROM ' . $this->tableName . ' WHERE athlete_name=:athlete_name');
         $sth->bindParam(':athlete_name', $name);
         $sth->execute();
+        return $sth->rowCount();
+    }
+
+    public function create($name): void
+    {
+        if (!$this->hasRecord($name)) {
+            $conn = $this->db->getConnection();
+            $sth = $conn->prepare('INSERT INTO ' . $this->tableName . ' SET athlete_name=:athlete_name');
+            $sth->bindParam(':athlete_name', $name);
+            $sth->execute();
+        }
     }
 
     public function delete($id): void

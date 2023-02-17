@@ -28,7 +28,7 @@ class ControllerSport extends Controller
 
     public function destroy(): void
     {
-        if (empty(!$_POST)) {
+        if (!empty($_POST)) {
             $id = $_POST['sport_id'];
             $this->model->delete($id);
         }

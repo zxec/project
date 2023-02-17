@@ -25,12 +25,23 @@ class ModelCountry extends Model
         return $sth->fetchAll();
     }
 
-    public function create($name): void
+    public function hasRecord($name): int
     {
         $conn = $this->db->getConnection();
-        $sth = $conn->prepare('INSERT INTO ' . $this->tableName . ' SET country_name=:country_name');
+        $sth = $conn->prepare('SELECT * FROM ' . $this->tableName . ' WHERE country_name=:country_name');
         $sth->bindParam(':country_name', $name);
         $sth->execute();
+        return $sth->rowCount();
+    }
+
+    public function create($name): void
+    {
+        if (!$this->hasRecord($name)) {
+            $conn = $this->db->getConnection();
+            $sth = $conn->prepare('INSERT INTO ' . $this->tableName . ' SET country_name=:country_name');
+            $sth->bindParam(':country_name', $name);
+            $sth->execute();
+        }
     }
 
     public function delete($id): void

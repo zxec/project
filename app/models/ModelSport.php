@@ -15,12 +15,23 @@ class ModelSport extends Model
         return $conn->query('SELECT * FROM ' . $this->tableName . ' ORDER BY `sport_name`')->fetchAll();
     }
 
-    public function create($name): void
+    public function hasRecord($name): int
     {
         $conn = $this->db->getConnection();
-        $sth = $conn->prepare('INSERT INTO ' . $this->tableName . ' SET sport_name=:sport_name');
+        $sth = $conn->prepare('SELECT * FROM ' . $this->tableName . ' WHERE sport_name=:sport_name');
         $sth->bindParam(':sport_name', $name);
         $sth->execute();
+        return $sth->rowCount();
+    }
+
+    public function create($name): void
+    {
+        if (!$this->hasRecord($name)) {
+            $conn = $this->db->getConnection();
+            $sth = $conn->prepare('INSERT INTO ' . $this->tableName . ' SET sport_name=:sport_name');
+            $sth->bindParam(':sport_name', $name);
+            $sth->execute();
+        }
     }
 
     public function delete($id): void

@@ -77,40 +77,36 @@
                         <div class="card-body table-responsive p-0">
                             <table class="table table-hover text-nowrap">
                                 <thead>
-                                <tr>
-                                    <th>id</th>
-                                    <th>Страна</th>
-                                    <th>Тип медали</th>
-                                    <th>Вид спорта</th>
-                                    <th>ФИО1</th>
-                                    <th>ФИО2</th>
-                                    <th>ФИО3</th>
-                                    <th>ФИО4</th>
-                                    <th>ФИО5</th>
-                                </tr>
+                                    <tr>
+                                        <th>id</th>
+                                        <th>Страна</th>
+                                        <th>Тип медали</th>
+                                        <th>Вид спорта</th>
+                                        <th>ФИО</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
-                                <?php foreach ($data['medals'] as $key => $medal) { ?>
-                                    <tr>
-                                        <td><?= $medal['id'] ?></td>
-                                        <td><?= $medal['country_name'] ?></td>
-                                        <td><?= $medal['medal_type'] ?></td>
-                                        <td><?= $medal['sport_name'] ?></td>
-                                        <td><?= $medal['athlete_name1'] ?></td>
-                                        <td><?= $medal['athlete_name2'] ?></td>
+                                    <?php foreach ($data['medals'] as $key => $medal) { ?>
+                                        <tr>
+                                            <td><?= $medal['id'] ?></td>
+                                            <td><?= $medal['country_name'] ?></td>
+                                            <td><?= $medal['medal_type'] ?></td>
+                                            <td><?= $medal['sport_name'] ?></td>
+                                            <td><?= $medal['athlete_name'] ?></td>
+                                            <!-- <td><?= $medal['athlete_name2'] ?></td>
                                         <td><?= $medal['athlete_name3'] ?></td>
                                         <td><?= $medal['athlete_name4'] ?></td>
-                                        <td><?= $medal['athlete_name5'] ?></td>
-                                        <td>
-                                            <form action="/Medal/destroy" method="POST">
-                                                <button class="border-0 bg-transparent" name="delete" type="submit">
-                                                    <i class="text-danger fas fa-solid fa-trash"></i>
-                                                    <input type="hidden" name="medal_id" value="<?= $medal['id'] ?>">
-                                                </button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                <?php } ?>
+                                        <td><?= $medal['athlete_name5'] ?></td> -->
+                                            <td>
+                                                <form action="/Medal/destroy" method="POST">
+                                                    <button class="border-0 bg-transparent" name="delete" type="submit">
+                                                        <i class="text-danger fas fa-solid fa-trash"></i>
+                                                        <input type="hidden" name="medal_id" value="<?= $medal['id'] ?>">
+                                                    </button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    <?php } ?>
                                 </tbody>
                             </table>
                         </div>

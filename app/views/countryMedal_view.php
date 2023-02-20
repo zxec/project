@@ -16,28 +16,23 @@
                         <div class="card-body table-responsive p-0">
                             <table class="table table-hover text-nowrap">
                                 <thead>
-                                <tr>
-                                    <th>Тип медали</th>
-                                    <th>Вид спорта</th>
-                                    <th>ФИО1</th>
-                                    <th>ФИО2</th>
-                                    <th>ФИО3</th>
-                                    <th>ФИО4</th>
-                                    <th>ФИО5</th>
-                                </tr>
+                                    <tr>
+                                        <th>Тип медали</th>
+                                        <th>Вид спорта</th>
+                                        <th>ФИО</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
-                                <?php foreach ($data as $key => $medal) { ?>
-                                    <tr>
-                                        <td><?= $medal['medal_type'] ?></td>
-                                        <td><?= $medal['sport_name'] ?></td>
-                                        <td><?= $medal['athlete_name1'] ?></td>
-                                        <td><?= $medal['athlete_name2'] ?></td>
-                                        <td><?= $medal['athlete_name3'] ?></td>
-                                        <td><?= $medal['athlete_name4'] ?></td>
-                                        <td><?= $medal['athlete_name5'] ?></td>
-                                    </tr>
-                                <?php } ?>
+                                    <?php foreach ($data as $key => $medal) { ?>
+                                        <tr>
+                                            <td><?= $medal['medal_type'] ?></td>
+                                            <td><?= $medal['sport_name'] ?></td>
+                                            <td><?= $medal['athlete_name'] ?></td>
+                                            <!-- <?php foreach ($medal['athletes_name'] as $athlete) { ?>
+                                                <td><?= $athlete['athlete_name'] ?></td>
+                                            <?php } ?> -->
+                                        </tr>
+                                    <?php } ?>
                                 </tbody>
                             </table>
                         </div>

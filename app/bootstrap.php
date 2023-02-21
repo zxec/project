@@ -1,5 +1,6 @@
 <?php
 
+require_once 'vendor/autoload.php';
 require_once 'database.php';
 require_once 'core/Model.php';
 require_once 'core/View.php';

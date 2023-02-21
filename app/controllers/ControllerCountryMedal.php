@@ -22,10 +22,10 @@ class ControllerCountryMedal extends Controller
         $country = $modelCountry->getDataCountry($params[0]);
         $medalTypes = $modelMedalType->getData();
 
-        $title = 'Все медали страны ' . $country[0]['country_name'];
+        $title = 'Все медали страны ' . $country['country_name'];
         foreach ($medalTypes as $type) {
             if (isset($params[1]) && $params[1] === $type['id']) {
-                $title = substr_replace($type['medal_type'], 'ые', -4) . ' медали страны ' . $country[0]['country_name'];
+                $title = substr_replace($type['medal_type'], 'ые', -4) . ' медали страны ' . $country['country_name'];
             }
         }
 

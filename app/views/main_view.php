@@ -23,7 +23,7 @@
                                             <th><?= isset($params[0]) ? $this->generateSortLink('Золотые медали', 'g_desc', 'g_asc', $params[0]) : $this->generateSortLink('Золотые медали', 'g_desc', 'g_asc') ?></th>
                                             <th><?= isset($params[0]) ? $this->generateSortLink('Серебряные медали', 'a_desc', 'a_asc', $params[0]) : $this->generateSortLink('Серебряные медали', 'a_desc', 'a_asc') ?></th>
                                             <th><?= isset($params[0]) ? $this->generateSortLink('Бронзовые медали', 'b_desc', 'b_asc', $params[0]) : $this->generateSortLink('Бронзовые медали', 'b_desc', 'b_asc') ?></th>
-                                            <th><?= isset($params[0]) ? $this->generateSortLink('Сумма медалей', 'al_desc', 'al_asc', $params[0]) : $this->generateSortLink('Сумма медалей', 'al_desc', 'al_asc') ?></th>
+                                            <th><?= isset($params[0]) ? $this->generateSortLink('Сумма медалей', 'all_desc', 'all_asc', $params[0]) : $this->generateSortLink('Сумма медалей', 'all_desc', 'all_asc') ?></th>
                                         </tr>
                                     </thead>
                                     <tbody>

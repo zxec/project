@@ -21,9 +21,9 @@ class ModelCountryMedal extends Model
         `mdtype`.`medal_type` AS `medal_type`,
         `ath`.`athlete_name`
         FROM `medals` `md`
-        join `countries` `ctrs` on `ctrs`.`id` = `md`.`country_id`
-        join `sports` `sprts` on `sprts`.`id` = `md`.`sport_id`
-        join `medal_types` `mdtype` on `mdtype`.`id` = `md`.`medal_type_id`
+        left join `countries` `ctrs` on `ctrs`.`id` = `md`.`country_id`
+        left join `sports` `sprts` on `sprts`.`id` = `md`.`sport_id`
+        left join `medal_types` `mdtype` on `mdtype`.`id` = `md`.`medal_type_id`
         left join `medal_athletes` `md_ath` on `md_ath`.`medal_id` = `md`.`id`
         left join `athletes` `ath` on `md_ath`.`athlete_id` =  `ath`.`id`';
         if (!empty($params)) {

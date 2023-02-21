@@ -12,7 +12,7 @@ class ModelMain extends Model
   public function getData(): array
   {
     $conn = $this->db->getConnection();
-    $data = $conn->query('SELECT ROW_NUMBER() OVER () `place`,
+    $data = $conn->query('SELECT ROW_NUMBER() OVER (ORDER BY sum(`medals`.`medal_type_id` = 1) desc, sum(`medals`.`medal_type_id` = 2) desc, sum(`medals`.`medal_type_id` = 3) desc) `place`,
     `countries`.`id` `country_id`,
     `countries`.`country_name`,
     sum(`medals`.`medal_type_id` = 1) `g`,       
@@ -39,8 +39,8 @@ class ModelMain extends Model
       'a_desc' => '`a` DESC',
       'b_asc' => '`b`',
       'b_desc' => '`b` DESC',
-      'al_asc' => '`al`',
-      'al_desc' => '`al` DESC',
+      'all_asc' => '`all`',
+      'all_desc' => '`all` DESC',
     ];
 
     if (array_key_exists($sort, $sortList)) {
@@ -50,7 +50,7 @@ class ModelMain extends Model
     }
 
     $conn = $this->db->getConnection();
-    return $conn->query('SELECT ROW_NUMBER() OVER () `place`,
+    return $conn->query('SELECT ROW_NUMBER() OVER (ORDER BY sum(`medals`.`medal_type_id` = 1) desc, sum(`medals`.`medal_type_id` = 2) desc, sum(`medals`.`medal_type_id` = 3) desc) `place`,
     `countries`.`id` `country_id`,
     `countries`.`country_name`,
     sum(`medals`.`medal_type_id` = 1) `g`,       

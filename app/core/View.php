@@ -1,8 +1,9 @@
 <?php
 
-class View
+class View extends SmartyGuestBook
 {
     public string $templateView = 'layout.php';
+    //public $smarty = new Smarty();
 
     public function generateSortLink($title, $a, $b, $sort = null): string
     {

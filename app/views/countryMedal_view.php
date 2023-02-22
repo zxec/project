@@ -1,44 +1,19 @@
-<div class="content-wrapper">
-    <div class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1 class="m-0"><?= $params[0] ?></h1>
-                </div>
+<?php
+$this->assign('h1', $params[0]);
+$this->display('header.tpl');
+?>
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <?php
+                $this->assign([
+                    'thead' => ['Тип медали', 'Вид спорта', 'ФИО'],
+                    'data' => $data
+                ]);
+                $this->display('table.tpl');
+                ?>
             </div>
         </div>
     </div>
-    <section class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-body table-responsive p-0">
-                            <table class="table table-hover text-nowrap">
-                                <thead>
-                                    <tr>
-                                        <th>Тип медали</th>
-                                        <th>Вид спорта</th>
-                                        <th>ФИО</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php foreach ($data as $key => $medal) { ?>
-                                        <tr>
-                                            <td><?= $medal['medal_type'] ?></td>
-                                            <td><?= $medal['sport_name'] ?></td>
-                                            <td><?= $medal['athlete_name'] ?></td>
-                                            <!-- <?php foreach ($medal['athletes_name'] as $athlete) { ?>
-                                                <td><?= $athlete['athlete_name'] ?></td>
-                                            <?php } ?> -->
-                                        </tr>
-                                    <?php } ?>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-</div>
+</section>

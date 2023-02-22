@@ -16,7 +16,7 @@ class ControllerSport extends Controller
             $sportName = htmlspecialchars(trim($_POST['sport_name']));
 
             if (!empty($sportName)) {
-                $this->model->create($sportName);
+                $this->model->create($sportName, 'sport_name');
             }
         }
         header('Location: ' . $_SERVER['HTTP_REFERER']);

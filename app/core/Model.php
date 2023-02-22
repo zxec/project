@@ -2,13 +2,20 @@
 
 abstract class Model
 {
-    // protected Database $db;
     protected string $tableName;
 
     public function getData(): array
     {
-        // $conn = $this->db->getConnection();
-        // return $conn->query('SELECT * FROM ' . $this->tableName)->fetchAll();
-        return ORM::forTable($this->tableName)->findMany();
+        return ORM::forTable($this->tableName)->findArray();
+    }
+
+    public function getDataOne($id): ORM
+    {
+        return ORM::forTable($this->tableName)->findOne($id);
+    }
+
+    public function hasRecord($name, $column_name): bool
+    {
+        return ORM::forTable($this->tableName)->where($column_name, $name)->findOne();
     }
 }

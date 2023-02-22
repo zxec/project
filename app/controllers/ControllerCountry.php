@@ -16,7 +16,7 @@ class ControllerCountry extends Controller
             $countryName = htmlspecialchars(trim($_POST['country_name']));
 
             if (!empty($countryName)) {
-                $this->model->create($countryName);
+                $this->model->create($countryName, 'country_name');
             }
         }
         header('Location: ' . $_SERVER['HTTP_REFERER']);

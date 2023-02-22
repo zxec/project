@@ -19,7 +19,7 @@ class ControllerCountryMedal extends Controller
 
         $data = $this->model->getData($params);
 
-        $country = $modelCountry->getDataCountry($params[0]);
+        $country = $modelCountry->getDataOne($params[0]);
         $medalTypes = $modelMedalType->getData();
 
         $title = 'Все медали страны ' . $country['country_name'];

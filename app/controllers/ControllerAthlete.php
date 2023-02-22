@@ -16,7 +16,7 @@ class ControllerAthlete extends Controller
             $athleteName = htmlspecialchars(trim($_POST['athlete_name']));
 
             if (!empty($athleteName)) {
-                $this->model->create($athleteName);
+                $this->model->create($athleteName, 'athlete_name');
             }
         }
         header('Location: ' . $_SERVER['HTTP_REFERER']);

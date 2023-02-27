@@ -1,6 +1,6 @@
 <?php
 
-class ModelSport extends ModelCreateDelete
+class SportModel extends CreateDeleteModel
 {
 
     function __construct()

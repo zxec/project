@@ -25,8 +25,8 @@ class Route
             }
         }
 
-        $modelName = 'Model' . $controllerName;
-        $controllerName = 'Controller' . $controllerName;
+        $modelName = $controllerName . 'Model';
+        $controllerName = $controllerName . 'Controller';
 
         $modelFile = $modelName . '.php';
         $modelPath = "app/models/" . $modelFile;

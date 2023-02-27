@@ -1,6 +1,6 @@
 <?php
 
-class ModelMain extends Model
+class MainModel extends Model
 {
 
   function __construct()
@@ -12,17 +12,17 @@ class ModelMain extends Model
   {
     return ORM::forTable($this->tableName)
       ->selectManyExpr([
-        'place' => 'ROW_NUMBER() OVER (ORDER BY sum(medals.medal_type_id = 1) desc, 
-    sum(medals.medal_type_id = 2) desc, 
-    sum(medals.medal_type_id = 3) desc)',
-        'g' => 'sum(`medals`.`medal_type_id` = 1)',
-        'a' => 'sum(`medals`.`medal_type_id` = 2)',
-        'b' => 'sum(`medals`.`medal_type_id` = 3)',
+        'place' => 'ROW_NUMBER() OVER (ORDER BY sum(medals.type_medal_id = 1) desc, 
+    sum(medals.type_medal_id = 2) desc, 
+    sum(medals.type_medal_id = 3) desc)',
+        'g' => 'sum(medals.type_medal_id = 1)',
+        'a' => 'sum(medals.type_medal_id = 2)',
+        'b' => 'sum(medals.type_medal_id = 3)',
         'all' => 'count(*)',
       ])
       ->selectMany([
         'country_id' => 'countries.id',
-        'countries.country_name'
+        'country_name' => 'countries.name'
       ])
       ->join('countries', ['countries.id', '=', 'medals.country_id'])
       ->groupBy('countries.id')
@@ -54,17 +54,17 @@ class ModelMain extends Model
 
     return ORM::forTable($this->tableName)
       ->selectManyExpr([
-        'place' => 'ROW_NUMBER() OVER (ORDER BY sum(medals.medal_type_id = 1) desc, 
-  sum(medals.medal_type_id = 2) desc, 
-  sum(medals.medal_type_id = 3) desc)',
-        'g' => 'sum(`medals`.`medal_type_id` = 1)',
-        'a' => 'sum(`medals`.`medal_type_id` = 2)',
-        'b' => 'sum(`medals`.`medal_type_id` = 3)',
+        'place' => 'ROW_NUMBER() OVER (ORDER BY sum(medals.type_medal_id = 1) desc, 
+  sum(medals.type_medal_id = 2) desc, 
+  sum(medals.type_medal_id = 3) desc)',
+        'g' => 'sum(medals.type_medal_id = 1)',
+        'a' => 'sum(medals.type_medal_id = 2)',
+        'b' => 'sum(medals.type_medal_id = 3)',
         'all' => 'count(*)',
       ])
       ->selectMany([
         'country_id' => 'countries.id',
-        'countries.country_name'
+        'country_name' => 'countries.name'
       ])
       ->join('countries', ['countries.id', '=', 'medals.country_id'])
       ->groupBy('countries.id')

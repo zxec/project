@@ -1,6 +1,6 @@
 <?php
 
-class ModelCountry extends ModelCreateDelete
+class CountryModel extends CreateDeleteModel
 {
 
     function __construct()

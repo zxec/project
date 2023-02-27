@@ -1,22 +1,22 @@
 <?php
 
-class ControllerSport extends Controller
+class CountryController extends Controller
 {
 
     public function __construct()
     {
-        $this->model = new ModelSport();
+        $this->model = new CountryModel();
         $this->view = new View();
-        $this->nameView = 'sport_view.php';
+        $this->nameView = 'country_view.tpl';
     }
 
     public function create(): void
     {
         if (!empty($_POST)) {
-            $sportName = htmlspecialchars(trim($_POST['sport_name']));
+            $countryName = htmlspecialchars(trim($_POST['country_name']));
 
-            if (!empty($sportName)) {
-                $this->model->create($sportName, 'sport_name');
+            if (!empty($countryName)) {
+                $this->model->create($countryName, 'name');
             }
         }
         header('Location: ' . $_SERVER['HTTP_REFERER']);
@@ -25,7 +25,7 @@ class ControllerSport extends Controller
     public function destroy(): void
     {
         if (!empty($_POST)) {
-            $id = $_POST['sport_id'];
+            $id = $_POST['country_id'];
             $this->model->delete($id);
         }
         header('Location: ' . $_SERVER['HTTP_REFERER']);

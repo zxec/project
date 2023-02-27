@@ -1,13 +1,13 @@
 <?php
 
-class ControllerAthlete extends Controller
+class AthleteController extends Controller
 {
 
     public function __construct()
     {
-        $this->model = new ModelAthlete();
+        $this->model = new AthleteModel();
         $this->view = new View();
-        $this->nameView = 'athlete_view.php';
+        $this->nameView = 'athlete_view.tpl';
     }
 
     public function create(): void
@@ -16,7 +16,7 @@ class ControllerAthlete extends Controller
             $athleteName = htmlspecialchars(trim($_POST['athlete_name']));
 
             if (!empty($athleteName)) {
-                $this->model->create($athleteName, 'athlete_name');
+                $this->model->create($athleteName, 'name');
             }
         }
         header('Location: ' . $_SERVER['HTTP_REFERER']);

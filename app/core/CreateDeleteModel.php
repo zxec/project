@@ -1,6 +1,6 @@
 <?php
 
-abstract class ModelCreateDelete extends Model
+abstract class CreateDeleteModel extends Model
 {
     public function create($name, $column_name): void
     {

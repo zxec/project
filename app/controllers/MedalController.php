@@ -1,12 +1,12 @@
 <?php
 
-class ControllerMedal extends Controller
+class MedalController extends Controller
 {
     public function __construct()
     {
-        $this->model = new ModelMedal();
+        $this->model = new MedalModel();
         $this->view = new View();
-        $this->nameView = 'medal_view.php';
+        $this->nameView = 'medal_view.tpl';
     }
 
     public function create(): void

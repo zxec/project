@@ -3,7 +3,7 @@
 require_once 'vendor/autoload.php';
 require_once 'database.php';
 require_once 'core/Model.php';
-require_once 'core/ModelCreateDelete.php';
+require_once 'core/CreateDeleteModel.php';
 require_once 'core/SmartyGuestBook.php';
 require_once 'core/View.php';
 require_once 'core/Controller.php';

@@ -3,7 +3,7 @@
         <div class="form-group w-50">
             <label>Тип медали</label>
             <select class="form-control mb-3" name="medal_type" required>
-                {foreach $data['type_medal'] as $row}
+                {foreach $data['type_medals'] as $row}
                     <option value="{$row['id']}">{$row['name']}</option>
                 {/foreach}
             </select>

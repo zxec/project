@@ -1,6 +1,7 @@
 .idea
-.docx
 .vscode
 templates_c
 cache
 vendor
+/app/views/cache
+/app/views/templates_c

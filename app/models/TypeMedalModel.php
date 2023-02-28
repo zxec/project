@@ -5,6 +5,6 @@ class TypeMedalModel extends Model
 
     function __construct()
     {
-        $this->tableName = 'type_medal';
+        $this->tableName = 'type_medals';
     }
 }
